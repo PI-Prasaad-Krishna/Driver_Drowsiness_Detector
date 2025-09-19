@@ -41,14 +41,8 @@ Driver_Drowsiness_Detector/
    git clone https://github.com/PI-Prasaad-Krishna/Driver_Drowsiness_Detector.git
    cd Driver_Drowsiness_Detector
    ```
-
-2. Install dependencies:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. Download models:
+   
+2. Download models:
 
    * [Haar cascade XML](https://github.com/opencv/opencv/tree/master/data/haarcascades)
    * [Dlib landmarks model (68 points)](http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2)

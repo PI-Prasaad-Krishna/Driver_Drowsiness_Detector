@@ -1,17 +1,22 @@
 import argparse
-import subprocess
-import sys
 
-def run_mode(mode):
-    if mode == "haar":
-        subprocess.run([sys.executable, "haar_mode.py"])
-    elif mode == "dlib":
-        subprocess.run([sys.executable, "dlib_mode.py"])
-    else:
-        print("❌ Invalid mode. Use --mode haar or --mode dlib")
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--mode", type=str, default="haar",
+                        choices=["haar", "dlib", "huggingface"],
+                        help="Choose detection mode")
+    args = parser.parse_args()
+
+    if args.mode == "haar":
+        import haar_mode
+        haar_mode.run()
+    elif args.mode == "dlib":
+        import dlib_mode
+        dlib_mode.run()
+    elif args.mode == "huggingface":
+        from hf_model import HuggingFaceDrowsinessDetector
+        detector = HuggingFaceDrowsinessDetector()
+        detector.run()
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Driver Drowsiness Detector")
-    parser.add_argument("--mode", type=str, required=True, help="haar or dlib")
-    args = parser.parse_args()
-    run_mode(args.mode)
+    main()

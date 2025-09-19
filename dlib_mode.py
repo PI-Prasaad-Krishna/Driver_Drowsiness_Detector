@@ -19,16 +19,16 @@ def download_dlib_model():
 
     # Check if the model file already exists
     if os.path.exists(model_path):
-        print("✅ Dlib model already exists.")
+        print("[INFO] Dlib model already exists.")
         return
 
     # Create the 'models' directory if it doesn't exist
-    print("📂 'models' directory not found. Creating it...")
+    print("[INFO] 'models' directory not found. Creating it...")
     os.makedirs(model_dir, exist_ok=True)
 
     # Download the compressed model
     url = "http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2"
-    print(f"🌎 Downloading dlib model from {url}...")
+    print(f"[INFO] Downloading dlib model from {url}...")
     response = requests.get(url, stream=True)
 
     if response.status_code == 200:
@@ -41,7 +41,7 @@ def download_dlib_model():
                     f_out.write(decompressor.decompress(chunk))
         print(f"✅ Model saved to {model_path}")
     else:
-        print(f"❌ Failed to download model. Status code: {response.status_code}")
+        print(f"[INFO] Failed to download model. Status code: {response.status_code}")
         exit()
 
 # ---------------------------

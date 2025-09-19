@@ -18,6 +18,12 @@ The system alerts the driver when signs of sleepiness are detected.
 
 ---
 
+## 🏛️ Architecture
+
+![Driver Drowsiness Detection Architecture](assets/architecture_diagram.png)
+
+---
+
 ## 📂 Project Structure
 
 ```

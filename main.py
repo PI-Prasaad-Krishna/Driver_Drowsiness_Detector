@@ -14,20 +14,20 @@ class DrowsinessDetectorApp:
 
     def setup_styles(self):
         # Colors & Fonts
-        self.BG_COLOR = "#212121"
-        self.BUTTON_COLOR = "#3c3c3c"
-        self.BUTTON_HOVER_COLOR = "#0078D7"
-        self.TEXT_COLOR = "#FFFFFF"
-        self.ACCENT_COLOR = "#00aaff"
-        self.title_font = tkfont.Font(family="Segoe UI", size=20, weight="bold")
-        self.button_font = tkfont.Font(family="Segoe UI", size=11, weight="bold")
-        self.desc_font = tkfont.Font(family="Segoe UI", size=9)
+        self.BG_COLOR = "#1E1E1E"
+        self.BUTTON_COLOR = "#2D2D30"
+        self.BUTTON_HOVER_COLOR = "#007ACC"
+        self.TEXT_COLOR = "#F1F1F1"
+        self.ACCENT_COLOR = "#007ACC"
+        self.title_font = tkfont.Font(family="Segoe UI", size=22, weight="bold")
+        self.button_font = tkfont.Font(family="Segoe UI", size=12, weight="bold")
+        self.desc_font = tkfont.Font(family="Segoe UI", size=10)
 
     def setup_window(self):
         self.root.title("Drowsiness Detector")
         self.root.configure(bg=self.BG_COLOR)
         # Center the window
-        window_width, window_height = 450, 400
+        window_width, window_height = 500, 450
         screen_width, screen_height = self.root.winfo_screenwidth(), self.root.winfo_screenheight()
         center_x = int(screen_width/2 - window_width/2)
         center_y = int(screen_height/2 - window_height/2)
@@ -70,9 +70,9 @@ class DrowsinessDetectorApp:
         
         button.configure(font=self.button_font, bg=self.BUTTON_COLOR, fg=self.TEXT_COLOR,
                          activebackground=self.BUTTON_HOVER_COLOR, activeforeground=self.TEXT_COLOR,
-                         relief=tk.FLAT, borderwidth=0, width=25, anchor="center",
+                         relief=tk.FLAT, borderwidth=1, highlightthickness=0, width=28, anchor="center",
                          command=lambda: self.start_mode(mode))
-        button.pack(pady=6, ipady=8)
+        button.pack(pady=10, ipady=12)
 
         button.bind("<Enter>", lambda event: self.status_label.config(text=description))
         button.bind("<Leave>", lambda event: self.status_label.config(text="Hover over a mode for details"))
